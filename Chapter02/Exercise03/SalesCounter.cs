@@ -21,8 +21,21 @@ namespace SalesCalculator {
             foreach (var sale in _sales) {
                 if (dict.ContainsKey(sale.ShopName))
                     dict[sale.ShopName] += sale.Amount;
+          
                 else
                     dict[sale.ShopName] = sale.Amount;
+            }
+            return dict;
+        }
+
+        //カテゴリー別売り上げを求める
+        public IDictionary<string, int> GetPerCategorySales() {
+            var dict = new Dictionary<string, int>();
+            foreach (var sale in _sales) {
+                if (dict.ContainsKey(sale.ProductCategory))
+                    dict[sale.ProductCategory] += sale.Amount;
+                else
+                    dict[sale.ProductCategory] = sale.Amount;
             }
             return dict;
         }
