@@ -24,9 +24,11 @@ namespace Section01 {
              Console.WriteLine(exitsts);
             var name = list.Find(s => s.Length == 6);
             Console.WriteLine(name);*/
-            var names = list.FindAll(s => s.Length <= 5);
-            names.ForEach(Console.WriteLine);
+           // var names = list.FindAll(s => s.Length <= 5);
+            //names.ForEach(Console.WriteLine);
 
+            var removedCount = list.RemoveAll(s => s.Contains("on"));
+            list.ForEach(s =>Console.WriteLine(s));
             /*foreach(var s in names) {
                 Console.WriteLine(s);
             }*/
