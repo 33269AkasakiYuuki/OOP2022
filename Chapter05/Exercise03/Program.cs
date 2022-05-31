@@ -45,13 +45,6 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_5(string text) {
-            /* var s = text.Split(' ');
-             var sd = new StringBuilder();
-             foreach (var word in s) {
-                 sd.Append(word);
-             }
-             var ss = sd.ToString();
-             Console.WriteLine(ss);*/
 
             var array = text.Split(' ').ToArray();
             if (array.Length>0) {
