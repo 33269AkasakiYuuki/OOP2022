@@ -40,14 +40,25 @@ namespace Exercise01 {
             }
         }
 
-        //数値を文字列へ変換
+        //数値を文字列へ変換(Select)
         private static void Exercise1_3(int[] numbers) {
+            var strs = numbers.Select(n=>n.ToString());
+            foreach (var s in strs) {
+                Console.WriteLine(s);
+            }
         }
 
+        //小さい順に並べて先頭の３つを出力
         private static void Exercise1_4(int[] numbers) {
+            foreach (var i in numbers.OrderBy(x=>x).Take(3)) {
+                Console.WriteLine(i);
+            }
         }
 
+        //重複を排除し10より大きい数がいくつあるか
         private static void Exercise1_5(int[] numbers) {
+            var count = numbers.Distinct().Count(n => n > 10);
+            Console.WriteLine(count);
         }
     }
 }
