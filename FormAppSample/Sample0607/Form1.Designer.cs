@@ -224,6 +224,7 @@ namespace Sample0607 {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.nudAns);
             this.Controls.Add(this.nudMod);
@@ -244,8 +245,10 @@ namespace Sample0607 {
             this.Controls.Add(this.tbNum2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.tbNum1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "計算アプリ";
             ((System.ComponentModel.ISupportInitialize)(this.nudNum1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNum2)).EndInit();
