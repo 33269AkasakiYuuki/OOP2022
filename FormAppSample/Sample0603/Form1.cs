@@ -19,5 +19,7 @@ namespace Sample0603 {
             // tbAns.Text = (int.Parse(tbSuu1.Text) + int.Parse(tbSuu2.Text)).ToString();
             nudAns.Value = nudSuu1.Value + nudSuu2.Value;
         }
+
+       
     }
 }

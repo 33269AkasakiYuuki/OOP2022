@@ -61,6 +61,7 @@ namespace Sample0603 {
             this.tbSuu1.Name = "tbSuu1";
             this.tbSuu1.Size = new System.Drawing.Size(86, 19);
             this.tbSuu1.TabIndex = 1;
+            this.tbSuu1.Text = "5";
             // 
             // tbSuu2
             // 
