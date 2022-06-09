@@ -40,18 +40,18 @@ namespace AddressBook {
             this.cbOther = new System.Windows.Forms.CheckBox();
             this.btAddPerson = new System.Windows.Forms.Button();
             this.btPictureOpen = new System.Windows.Forms.Button();
-            this.pdPicture = new System.Windows.Forms.PictureBox();
+            this.pbPicture = new System.Windows.Forms.PictureBox();
             this.btPictureClear = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.ofdFileOpenDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pdPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(100, 31);
+            this.label1.Location = new System.Drawing.Point(92, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 27);
             this.label1.TabIndex = 0;
@@ -61,7 +61,7 @@ namespace AddressBook {
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(10, 78);
+            this.label2.Location = new System.Drawing.Point(2, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(156, 27);
             this.label2.TabIndex = 0;
@@ -71,7 +71,7 @@ namespace AddressBook {
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(101, 139);
+            this.label3.Location = new System.Drawing.Point(93, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 27);
             this.label3.TabIndex = 0;
@@ -81,7 +81,7 @@ namespace AddressBook {
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(100, 209);
+            this.label4.Location = new System.Drawing.Point(92, 210);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 27);
             this.label4.TabIndex = 0;
@@ -91,7 +91,7 @@ namespace AddressBook {
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(69, 261);
+            this.label5.Location = new System.Drawing.Point(62, 262);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 27);
             this.label5.TabIndex = 0;
@@ -100,7 +100,7 @@ namespace AddressBook {
             // dgvPersons
             // 
             this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPersons.Location = new System.Drawing.Point(74, 341);
+            this.dgvPersons.Location = new System.Drawing.Point(66, 342);
             this.dgvPersons.Name = "dgvPersons";
             this.dgvPersons.RowTemplate.Height = 21;
             this.dgvPersons.Size = new System.Drawing.Size(580, 150);
@@ -109,23 +109,22 @@ namespace AddressBook {
             // tbName
             // 
             this.tbName.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbName.Location = new System.Drawing.Point(172, 24);
+            this.tbName.Location = new System.Drawing.Point(164, 25);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(320, 34);
             this.tbName.TabIndex = 2;
-            this.tbName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tbMailAddress
             // 
             this.tbMailAddress.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbMailAddress.Location = new System.Drawing.Point(172, 71);
+            this.tbMailAddress.Location = new System.Drawing.Point(164, 72);
             this.tbMailAddress.Name = "tbMailAddress";
             this.tbMailAddress.Size = new System.Drawing.Size(320, 34);
             this.tbMailAddress.TabIndex = 2;
             // 
             // tbAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(172, 124);
+            this.tbAddress.Location = new System.Drawing.Point(164, 125);
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(320, 42);
@@ -134,7 +133,7 @@ namespace AddressBook {
             // tbCompany
             // 
             this.tbCompany.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbCompany.Location = new System.Drawing.Point(172, 202);
+            this.tbCompany.Location = new System.Drawing.Point(164, 203);
             this.tbCompany.Name = "tbCompany";
             this.tbCompany.Size = new System.Drawing.Size(320, 34);
             this.tbCompany.TabIndex = 2;
@@ -142,7 +141,7 @@ namespace AddressBook {
             // cbFamily
             // 
             this.cbFamily.AutoSize = true;
-            this.cbFamily.Location = new System.Drawing.Point(172, 271);
+            this.cbFamily.Location = new System.Drawing.Point(176, 272);
             this.cbFamily.Name = "cbFamily";
             this.cbFamily.Size = new System.Drawing.Size(48, 16);
             this.cbFamily.TabIndex = 3;
@@ -152,7 +151,7 @@ namespace AddressBook {
             // cbFriend
             // 
             this.cbFriend.AutoSize = true;
-            this.cbFriend.Location = new System.Drawing.Point(247, 271);
+            this.cbFriend.Location = new System.Drawing.Point(251, 272);
             this.cbFriend.Name = "cbFriend";
             this.cbFriend.Size = new System.Drawing.Size(48, 16);
             this.cbFriend.TabIndex = 3;
@@ -162,7 +161,7 @@ namespace AddressBook {
             // cbWork
             // 
             this.cbWork.AutoSize = true;
-            this.cbWork.Location = new System.Drawing.Point(314, 272);
+            this.cbWork.Location = new System.Drawing.Point(318, 273);
             this.cbWork.Name = "cbWork";
             this.cbWork.Size = new System.Drawing.Size(48, 16);
             this.cbWork.TabIndex = 3;
@@ -172,7 +171,7 @@ namespace AddressBook {
             // cbOther
             // 
             this.cbOther.AutoSize = true;
-            this.cbOther.Location = new System.Drawing.Point(390, 271);
+            this.cbOther.Location = new System.Drawing.Point(394, 272);
             this.cbOther.Name = "cbOther";
             this.cbOther.Size = new System.Drawing.Size(55, 16);
             this.cbOther.TabIndex = 3;
@@ -181,49 +180,52 @@ namespace AddressBook {
             // 
             // btAddPerson
             // 
-            this.btAddPerson.Location = new System.Drawing.Point(526, 254);
+            this.btAddPerson.Location = new System.Drawing.Point(518, 255);
             this.btAddPerson.Name = "btAddPerson";
             this.btAddPerson.Size = new System.Drawing.Size(128, 48);
             this.btAddPerson.TabIndex = 4;
             this.btAddPerson.Text = "追加";
             this.btAddPerson.UseVisualStyleBackColor = true;
+            this.btAddPerson.Click += new System.EventHandler(this.btAddPerson_Click);
             // 
             // btPictureOpen
             // 
-            this.btPictureOpen.Location = new System.Drawing.Point(526, 195);
+            this.btPictureOpen.Location = new System.Drawing.Point(518, 196);
             this.btPictureOpen.Name = "btPictureOpen";
             this.btPictureOpen.Size = new System.Drawing.Size(127, 23);
             this.btPictureOpen.TabIndex = 5;
             this.btPictureOpen.Text = "開く...";
             this.btPictureOpen.UseVisualStyleBackColor = true;
+            this.btPictureOpen.Click += new System.EventHandler(this.btPictureOpen_Click);
             // 
-            // pdPicture
+            // pbPicture
             // 
-            this.pdPicture.Location = new System.Drawing.Point(526, 31);
-            this.pdPicture.Name = "pdPicture";
-            this.pdPicture.Size = new System.Drawing.Size(127, 158);
-            this.pdPicture.TabIndex = 6;
-            this.pdPicture.TabStop = false;
+            this.pbPicture.Location = new System.Drawing.Point(500, 25);
+            this.pbPicture.Name = "pbPicture";
+            this.pbPicture.Size = new System.Drawing.Size(145, 156);
+            this.pbPicture.TabIndex = 6;
+            this.pbPicture.TabStop = false;
             // 
             // btPictureClear
             // 
-            this.btPictureClear.Location = new System.Drawing.Point(526, 224);
+            this.btPictureClear.Location = new System.Drawing.Point(518, 225);
             this.btPictureClear.Name = "btPictureClear";
             this.btPictureClear.Size = new System.Drawing.Size(127, 23);
             this.btPictureClear.TabIndex = 5;
             this.btPictureClear.Text = "クリア";
             this.btPictureClear.UseVisualStyleBackColor = true;
+            this.btPictureClear.Click += new System.EventHandler(this.btPictureClear_Click);
             // 
-            // openFileDialog1
+            // ofdFileOpenDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.ofdFileOpenDialog.FileName = "openFileDialog1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 513);
-            this.Controls.Add(this.pdPicture);
+            this.ClientSize = new System.Drawing.Size(656, 504);
+            this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.btPictureClear);
             this.Controls.Add(this.btPictureOpen);
             this.Controls.Add(this.btAddPerson);
@@ -242,9 +244,9 @@ namespace AddressBook {
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "住所録アプリ";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pdPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,9 +270,9 @@ namespace AddressBook {
         private System.Windows.Forms.CheckBox cbOther;
         private System.Windows.Forms.Button btAddPerson;
         private System.Windows.Forms.Button btPictureOpen;
-        private System.Windows.Forms.PictureBox pdPicture;
+        private System.Windows.Forms.PictureBox pbPicture;
         private System.Windows.Forms.Button btPictureClear;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog ofdFileOpenDialog;
     }
 }
 
