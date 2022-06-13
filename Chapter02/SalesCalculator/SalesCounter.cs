@@ -28,7 +28,7 @@ namespace SalesCalculator {
         //売り上げデータを読み込み、Saleオブジェクトのリストを返す
         public static IEnumerable<Sale> ReadSales(string filePath) {
             List<Sale> sales = new List<Sale>();
-            string[] lines = File.ReadAllLines(filePath);
+            string[] lines = sales.ReadAllLines(filePath);
             foreach (string line in lines) {
                 string[] items = line.Split(',');
                 Sale sale = new Sale {

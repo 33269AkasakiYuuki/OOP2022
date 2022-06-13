@@ -52,7 +52,6 @@ namespace AddressBook {
             }
             if (cbFamily.Checked) {
                 listGroup.Add(Person.GroupType.その他);
-
             }
             
             return listGroup;
@@ -65,7 +64,11 @@ namespace AddressBook {
 
         //データグリッドビューをクリックしたときのイベントハンドラ
         private void dgvPersons_Click(object sender, EventArgs e) {
+
+            if (dgvPersons.CurrentRow == null) return;
+            
             int index = dgvPersons.CurrentRow.Index;
+
             /*データグリッドビューのインデックス0番の名前をテキストボックスに格納*/
             tbName.Text = listPerson[index].Name;
             tbMailAddress.Text = listPerson[index].MailAddress;
@@ -73,26 +76,58 @@ namespace AddressBook {
             tbCompany.Text = listPerson[index].Company;
             pbPicture.Image = listPerson[index].Picture;
 
+            groupChecjBoxAllClear();
+
             foreach (var group in listPerson[index].listGroup) {
                 switch (group) {
                     case Person.GroupType.家族:
+                        cbFamily.Checked = true;
                         break;
                     case Person.GroupType.友人:
+                        cbFriend.Checked = true;
                         break;
                     case Person.GroupType.仕事:
+                        cbWork.Checked = true;
                         break;
                     case Person.GroupType.その他:
+                        cbOther.Checked = true;
                         break;
                     default:
                         break;
                 }
             }
 
-             /* 選択されているインデックスを取得する
+            /* 選択されているインデックスを取得する
 
-              インデックスが取得できたら、リスト(kistPerson)の該当するインデックスに
-              アクセスし、リストの各項目を名テキストボックスへ表示する*/
+             インデックスが取得できたら、リスト(kistPerson)の該当するインデックスに
+             アクセスし、リストの各項目を名テキストボックスへ表示する*/
 
+        }
+
+        //グループのチェックボックスをオールクリア
+        private void groupChecjBoxAllClear() {
+            cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
+        }
+
+        //更新ボタンが押された時の処理
+        private void btUpdate_Click(object sender, EventArgs e) {
+            listPerson[dgvPersons.CurrentRow.Index].Name = tbName.Text;
+            listPerson[dgvPersons.CurrentRow.Index].MailAddress = tbMailAddress.Text;
+            listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
+            listPerson[dgvPersons.CurrentRow.Index].Company = tbCompany.Text;
+            listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
+            listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
+            dgvPersons.Refresh();//データグリッドビュー更新
+        }
+
+        //削除ボタンが押された時の処理
+        private void btDelete_Click(object sender, EventArgs e) {
+            
+            listPerson.RemoveAt(dgvPersons.CurrentRow.Index);
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            //btDelete.Enabled = false; //削除ボタンをマスク
         }
     }
 }
