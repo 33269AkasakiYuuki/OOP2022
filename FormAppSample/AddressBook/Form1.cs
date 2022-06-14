@@ -36,6 +36,7 @@ namespace AddressBook {
             };
 
             listPerson.Add(newperson);
+
         }
 
         //チェックボックスにセットされている値をリストとして取り出す
@@ -124,10 +125,15 @@ namespace AddressBook {
         private void btDelete_Click(object sender, EventArgs e) {
             
             listPerson.RemoveAt(dgvPersons.CurrentRow.Index);
+            if (listPerson.Count()==0) {
+                btDelete.Enabled = false;
+                btUpdate.Enabled = false;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            //btDelete.Enabled = false; //削除ボタンをマスク
+            btDelete.Enabled = false; //削除ボタンをマスク
+            btUpdate.Enabled = false; //更新ボタンをマスク
         }
     }
 }
