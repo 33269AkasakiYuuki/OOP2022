@@ -1,5 +1,5 @@
 ﻿namespace Test01 {
-    class Student {
+   public class Student {
         
         //学生
         public string Name { get; set; }
