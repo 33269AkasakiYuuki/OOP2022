@@ -45,6 +45,7 @@ namespace AddressBook {
             this.ofdFileOpenDialog = new System.Windows.Forms.OpenFileDialog();
             this.btUpdate = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
+            this.cbCompany = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.SuspendLayout();
@@ -141,9 +142,9 @@ namespace AddressBook {
             // tbCompany
             // 
             this.tbCompany.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbCompany.Location = new System.Drawing.Point(164, 203);
+            this.tbCompany.Location = new System.Drawing.Point(-2, 173);
             this.tbCompany.Name = "tbCompany";
-            this.tbCompany.Size = new System.Drawing.Size(320, 34);
+            this.tbCompany.Size = new System.Drawing.Size(90, 34);
             this.tbCompany.TabIndex = 2;
             // 
             // cbFamily
@@ -249,11 +250,21 @@ namespace AddressBook {
             this.btDelete.UseVisualStyleBackColor = true;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
+            // cbCompany
+            // 
+            this.cbCompany.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.cbCompany.FormattingEnabled = true;
+            this.cbCompany.Location = new System.Drawing.Point(164, 210);
+            this.cbCompany.Name = "cbCompany";
+            this.cbCompany.Size = new System.Drawing.Size(320, 32);
+            this.cbCompany.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 504);
+            this.Controls.Add(this.cbCompany);
             this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.btPictureClear);
             this.Controls.Add(this.btPictureOpen);
@@ -307,6 +318,7 @@ namespace AddressBook {
         private System.Windows.Forms.OpenFileDialog ofdFileOpenDialog;
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.ComboBox cbCompany;
     }
 }
 
