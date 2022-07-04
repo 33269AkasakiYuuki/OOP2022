@@ -60,6 +60,8 @@ namespace RssReader
             // 
             // lbRssTitle
             // 
+            this.lbRssTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lbRssTitle.FormattingEnabled = true;
             this.lbRssTitle.ItemHeight = 12;
             this.lbRssTitle.Location = new System.Drawing.Point(12, 44);
@@ -102,6 +104,9 @@ namespace RssReader
             // 
             // wvBrowser
             // 
+            this.wvBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.wvBrowser.Location = new System.Drawing.Point(251, 44);
             this.wvBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.wvBrowser.Name = "wvBrowser";

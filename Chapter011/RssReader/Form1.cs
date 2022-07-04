@@ -47,6 +47,10 @@ namespace RssReader
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            BackForwardButtonMaskCheck();
+        }
+
+        private void BackForwardButtonMaskCheck() {
             btBack.Enabled = wvBrowser.CanGoBack;
             btForward.Enabled = wvBrowser.CanGoForward;
         }
