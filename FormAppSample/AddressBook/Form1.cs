@@ -93,7 +93,6 @@ namespace AddressBook {
 
             private void btPictureClear_Click(object sender, EventArgs e) {
                 pbPicture.Image = null;
-
             }
 
             //データグリッドビューをクリックしたときのイベントハンドラ
@@ -229,5 +228,7 @@ namespace AddressBook {
                     break;
             }
         }
+
+        
     }
 }

@@ -41,7 +41,6 @@ namespace AddressBook {
             this.btPictureOpen = new System.Windows.Forms.Button();
             this.pbPicture = new System.Windows.Forms.PictureBox();
             this.btPictureClear = new System.Windows.Forms.Button();
-            this.ofdFileOpenDialog = new System.Windows.Forms.OpenFileDialog();
             this.btUpdate = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
             this.cbCompany = new System.Windows.Forms.ComboBox();
@@ -55,6 +54,7 @@ namespace AddressBook {
             this.tbTelNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpRegistDate = new System.Windows.Forms.DateTimePicker();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -226,10 +226,6 @@ namespace AddressBook {
             this.btPictureClear.Text = "クリア";
             this.btPictureClear.UseVisualStyleBackColor = true;
             // 
-            // ofdFileOpenDialog
-            // 
-            this.ofdFileOpenDialog.FileName = "openFileDialog1";
-            // 
             // btUpdate
             // 
             this.btUpdate.Location = new System.Drawing.Point(518, 284);
@@ -269,7 +265,7 @@ namespace AddressBook {
             // 
             // btOpen
             // 
-            this.btOpen.Location = new System.Drawing.Point(10, 352);
+            this.btOpen.Location = new System.Drawing.Point(12, 352);
             this.btOpen.Name = "btOpen";
             this.btOpen.Size = new System.Drawing.Size(51, 42);
             this.btOpen.TabIndex = 9;
@@ -343,6 +339,10 @@ namespace AddressBook {
             this.dtpRegistDate.Size = new System.Drawing.Size(178, 19);
             this.dtpRegistDate.TabIndex = 15;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -405,7 +405,6 @@ namespace AddressBook {
         private System.Windows.Forms.Button btPictureOpen;
         private System.Windows.Forms.PictureBox pbPicture;
         private System.Windows.Forms.Button btPictureClear;
-        private System.Windows.Forms.OpenFileDialog ofdFileOpenDialog;
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.ComboBox cbCompany;
@@ -419,6 +418,7 @@ namespace AddressBook {
         private System.Windows.Forms.TextBox tbTelNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpRegistDate;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
