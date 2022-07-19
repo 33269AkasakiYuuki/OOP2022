@@ -142,6 +142,7 @@ namespace CarReportSystem {
             this.btExit.TabIndex = 2;
             this.btExit.Text = "終了";
             this.btExit.UseVisualStyleBackColor = true;
+            this.btExit.Click += new System.EventHandler(this.btExit_Click);
             // 
             // radioButton1
             // 
@@ -320,7 +321,7 @@ namespace CarReportSystem {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 789);
+            this.ClientSize = new System.Drawing.Size(745, 527);
             this.Controls.Add(this.radioButton6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);

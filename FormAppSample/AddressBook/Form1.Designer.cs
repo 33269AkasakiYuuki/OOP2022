@@ -142,7 +142,7 @@ namespace AddressBook {
             // tbAddress
             // 
             this.tbAddress.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbAddress.Location = new System.Drawing.Point(164, 125);
+            this.tbAddress.Location = new System.Drawing.Point(162, 125);
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(320, 42);
