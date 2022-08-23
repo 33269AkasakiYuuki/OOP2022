@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace CarReportSystem {
     //設定情報
-    [Serializable]
+    
     public class Settings {
-       public Color MainFormColor { get; set; }
+       public int  MainFormColor { get; set; }
     }
 }

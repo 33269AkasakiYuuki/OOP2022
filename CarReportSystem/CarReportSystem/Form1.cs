@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace CarReportSystem {
     public partial class Form1 : Form {
@@ -25,14 +27,40 @@ namespace CarReportSystem {
         }
 
         private void btExit_Click(object sender, EventArgs e) {
+            //アプリケーションの終了
+            Application.Exit();
+        }
 
+        private void 設定ToolStripMenuItem_Click(object sender, EventArgs e) {
+            //色設定ダイアログの表示
+            if (cdColorSelect.ShowDialogResult.OK) {
+                BackColor = cdColorSelect.Color; //背景変更
+                settings.MainFormColor.
+            }
+        }
+
+        private void pbModeSelect_Click(object sender, EventArgs e) {
+            pbPicture.SizeMode = (PictureBoxSizeMode)mode;
+            mode = mode < 4 ? ++mode : 0;
         }
 
         private void Form1_FormClosed(object sender, EventArgs e) {
-            //設定ファイルをシリアル化
+            //設定ファイルをシリアル化(p305)
             using(var writer = XmlWriter.Create("settings")) {
+                var serializer = new XmlSerializer(settings.GetType());
+                serializer.Serialize(writer, settings);
             }
         }
+        private void Form1_Load(object sender, EventArgs e) {
+            //設定ファイルを逆シリアル化(p307)して背景の色を設定
+            using (var reader = XmlReader.Create("settings.xml")) {
+                var serializer = new XmlSerializer(typeof(Settings));
+                settings = serializer.Deserialize(reader) as Settings;
+                BackColor =Color.FromArgb(settings.MainFormColor); //ARGBからColorオブジェクトへ変換
+            }
+            EnabledCheck(); //マスク処理呼び出し
+        }
+
 
         private void btAddPerson_Click(object sender, EventArgs e) {
             //氏名が未入力なら登録しない
@@ -56,7 +84,14 @@ namespace CarReportSystem {
 
             settbcomboBox2(tbcomboBox2.Text);
         }
-        
+
+        private void EnabledCheck() {
+            throw new NotImplementedException();
+        }
+
+        private void settbcomboBox2(string text) {
+            throw new NotImplementedException();
+        }
 
         //コンボボックスに会社名を登録する(重複なし)
         private void setCbCompany(String company) {
@@ -67,7 +102,7 @@ namespace CarReportSystem {
             }
 
             //チェックボックスにセットされている値をリストとして取り出す
-            private List<Person.GroupType> GetCheckBoxGroup() {
+             List<Person.GroupType> GetCheckBoxGroup() {
                 var listGroup = new List<Person.GroupType>();
                 if (radioButton1.Checked) {
                     listGroup.Add(Person.GroupType.トヨタ);
