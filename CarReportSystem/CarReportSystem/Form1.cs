@@ -15,7 +15,7 @@ namespace CarReportSystem {
     public partial class Form1 : Form {
 
         //設定情報保存用オブジェクト
-        Settings settings = new Settings();
+        Settings settings = Settings.getInstancne();
 
         //カーレポート管理用リスト
         BindingList<Person> listPerson = new BindingList<Person>();
@@ -35,7 +35,7 @@ namespace CarReportSystem {
             //色設定ダイアログの表示
             if (cdColorSelect.ShowDialogResult.OK) {
                 BackColor = cdColorSelect.Color; //背景変更
-                settings.MainFormColor.
+                settings.MainFormColor = cdColorSelect.Color.ToArgb();
             }
         }
 
@@ -51,14 +51,23 @@ namespace CarReportSystem {
                 serializer.Serialize(writer, settings);
             }
         }
+
         private void Form1_Load(object sender, EventArgs e) {
-            //設定ファイルを逆シリアル化(p307)して背景の色を設定
-            using (var reader = XmlReader.Create("settings.xml")) {
-                var serializer = new XmlSerializer(typeof(Settings));
-                settings = serializer.Deserialize(reader) as Settings;
-                BackColor =Color.FromArgb(settings.MainFormColor); //ARGBからColorオブジェクトへ変換
-            }
+
             EnabledCheck(); //マスク処理呼び出し
+
+            try {
+                //設定ファイルを逆シリアル化(p307)して背景の色を設定
+                using (var reader = XmlReader.Create("settings.xml")) {
+                    var serializer = new XmlSerializer(typeof(Settings));
+                    settings = serializer.Deserialize(reader) as Settings;
+                    BackColor = Color.FromArgb(settings.MainFormColor); //ARGBからColorオブジェクトへ変換
+                }
+
+            }
+            catch (Exception){
+
+            }
         }
 
 
