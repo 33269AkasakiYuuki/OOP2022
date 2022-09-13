@@ -348,14 +348,14 @@ namespace AddressBook {
             // btConnect
             // 
             this.btConnect.Name = "btConnect";
-            this.btConnect.Size = new System.Drawing.Size(180, 22);
+            this.btConnect.Size = new System.Drawing.Size(151, 22);
             this.btConnect.Text = "データベース接続";
             // 
             // 終了xToolStripMenuItem
             // 
             this.終了xToolStripMenuItem.Name = "終了xToolStripMenuItem";
             this.終了xToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.終了xToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了xToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.終了xToolStripMenuItem.Text = "終了";
             // 
             // ヘルプToolStripMenuItem
@@ -369,7 +369,7 @@ namespace AddressBook {
             // バージョン情報ToolStripMenuItem
             // 
             this.バージョン情報ToolStripMenuItem.Name = "バージョン情報ToolStripMenuItem";
-            this.バージョン情報ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.バージョン情報ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.バージョン情報ToolStripMenuItem.Text = "バージョン情報";
             this.バージョン情報ToolStripMenuItem.Click += new System.EventHandler(this.バージョン情報ToolStripMenuItem_Click);
             // 

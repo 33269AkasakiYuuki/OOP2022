@@ -23,11 +23,11 @@ namespace AddressBook {
         private void Form1_Load(object sender, EventArgs e) {
         }
 
-        private void btConnect_Click(object sender, EventArgs e) {
+        /*private void btConnect_Click(object sender, EventArgs e) {
 
             // TODO: このコード行はデータを 'infosys202223DataSet.AddressTable' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
             this.addressTableTableAdapter.Fill(this.infosys202223DataSet.AddressTable);
-        }
+        }*/
 
         private void addressTableDataGridView_Click(object sender, EventArgs e) {
             if (addressTableDataGridView == null)
@@ -119,7 +119,5 @@ namespace AddressBook {
         private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e) {
             new Version().ShowDialog();
         }
-
-        
     }
 }
