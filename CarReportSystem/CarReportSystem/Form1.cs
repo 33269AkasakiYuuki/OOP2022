@@ -28,7 +28,7 @@ namespace CarReportSystem {
 
         private void addressTableBindingNavigatorSaveItem_Click(object sender, EventArgs e) {
             this.Validate();
-            this.addressTableBindingSource.EndEdit();
+            this.carReportDBBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.infosys202223DataSet);
         }
 
@@ -50,7 +50,7 @@ namespace CarReportSystem {
             }*/
         }
 
-        private void addressTableDataGridView_Click(object sender, EventArgs e) {
+        private void dataGridView1_Click(object sender, EventArgs e) {
             if (dataGridView1 == null)
                 return;
 
@@ -84,7 +84,7 @@ namespace CarReportSystem {
 
             //データセットの中をデータベースへ反映(保存)
             this.Validate();
-            this.addressTableBindingSource.EndEdit();
+            this.carReportDBBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.infosys202223DataSet);
         }
 
@@ -151,7 +151,7 @@ namespace CarReportSystem {
             infosys202223DataSet.CarReportDB.Rows.Add(newRow);
 
             //データベース更新
-            this.carReportDBBindingSource.Update(this.infosys202223DataSet.CarReportDB);
+            this.addressTableTableAdapter.Update(this.infosys202223DataSet.CarReportDB);
 
             /*//氏名が未入力なら登録しない
             if (String.IsNullOrWhiteSpace(recorder.Text)) {
@@ -175,13 +175,17 @@ namespace CarReportSystem {
             settbcomboBox2(tbcomboBox2.Text);*/
         }
 
-       /*private void EnabledCheck() {
-            throw new NotImplementedException();
+        //エラー回避
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e) {
         }
 
-        private void settbcomboBox2(string text) {
-            throw new NotImplementedException();
-        }*/
+        /*private void EnabledCheck() {
+             throw new NotImplementedException();
+         }
+
+         private void settbcomboBox2(string text) {
+             throw new NotImplementedException();
+         }*/
 
         //コンボボックスに会社名を登録する(重複なし)
         /*private void setCbCompany(String company) {
@@ -216,138 +220,140 @@ namespace CarReportSystem {
                 return listGroup;
             }*/
 
-            /*private void btPictureClear_Click(object sender, EventArgs e) {
-                pbPicture.Image = null;
-            }*/
+        /*private void btPictureClear_Click(object sender, EventArgs e) {
+            pbPicture.Image = null;
+        }*/
 
-            //データグリッドビューをクリックしたときのイベントハンドラ
-            /*private void dgvPersons_Click(object sender, EventArgs e) {
+        //データグリッドビューをクリックしたときのイベントハンドラ
+        /*private void dgvPersons_Click(object sender, EventArgs e) {
 
-                if (dataGridView1.CurrentRow == null) return;
+            if (dataGridView1.CurrentRow == null) return;
 
-                int index = dataGridView1.CurrentRow.Index;
+            int index = dataGridView1.CurrentRow.Index;
 
-                /*データグリッドビューのインデックス0番の名前をテキストボックスに格納*/
-                /*recorder.Text = listPerson[index].Name;
-                dateTimePicker1.Text = listPerson[index].MailAddress;
-                tbcomboBox2.Text = listPerson[index].Address;
-                tbAddress.Text = listPerson[index].Company;
-                pbPicture.Image = listPerson[index].Picture;
+            /*データグリッドビューのインデックス0番の名前をテキストボックスに格納*/
+        /*recorder.Text = listPerson[index].Name;
+        dateTimePicker1.Text = listPerson[index].MailAddress;
+        tbcomboBox2.Text = listPerson[index].Address;
+        tbAddress.Text = listPerson[index].Company;
+        pbPicture.Image = listPerson[index].Picture;
 
-                dtpRegistDate.Value =
-                    listPerson[index].Registration.Year > 1900 ? listPerson[index].Registration : DateTime.Today;
+        dtpRegistDate.Value =
+            listPerson[index].Registration.Year > 1900 ? listPerson[index].Registration : DateTime.Today;
 
-                NewMethod(index);
+        NewMethod(index);
 
-                //グループのチェックボックスをオールクリア
-                private void groupChecjBoxAllClear() {
-                    radioButton3.Checked = radioButton3.Checked = radioButton2.Checked = radioButton4.Checked = radioButton5.Checked = radioButton6.Checked = false;
-                }
-        
-                //更新ボタンが押された時の処理
-                private void btUpdate_Click(object sender, EventArgs e) {
-                    listPerson[dataGridView1.CurrentRow.Index].Name = recorder.Text;
-                    listPerson[dataGridView1.CurrentRow.Index].MailAddress = dateTimePicker1.Text;
-                    listPerson[dataGridView1.CurrentRow.Index].Address = tbcomboBox2.Text;
-                    listPerson[dataGridView1.CurrentRow.Index].Company = tbAddress.Text;
-                    listPerson[dataGridView1.CurrentRow.Index].listGroup = GetCheckBoxGroup();
-                    listPerson[dataGridView1.CurrentRow.Index].Picture = pbPicture.Image;
-                    dataGridView1.Refresh();//データグリッドビュー更新
-                }
+        //グループのチェックボックスをオールクリア
+        private void groupChecjBoxAllClear() {
+            radioButton3.Checked = radioButton3.Checked = radioButton2.Checked = radioButton4.Checked = radioButton5.Checked = radioButton6.Checked = false;
+        }
 
-                //削除ボタンが押された時の処理
-                private void btDelete_Click(object sender, EventArgs e) {
+        //更新ボタンが押された時の処理
+        private void btUpdate_Click(object sender, EventArgs e) {
+            listPerson[dataGridView1.CurrentRow.Index].Name = recorder.Text;
+            listPerson[dataGridView1.CurrentRow.Index].MailAddress = dateTimePicker1.Text;
+            listPerson[dataGridView1.CurrentRow.Index].Address = tbcomboBox2.Text;
+            listPerson[dataGridView1.CurrentRow.Index].Company = tbAddress.Text;
+            listPerson[dataGridView1.CurrentRow.Index].listGroup = GetCheckBoxGroup();
+            listPerson[dataGridView1.CurrentRow.Index].Picture = pbPicture.Image;
+            dataGridView1.Refresh();//データグリッドビュー更新
+        }
 
-                    listPerson.RemoveAt(dgvPersons.CurrentRow.Index);
-                    EnabledCheck(); //マスク処理呼び出し
-                }
+        //削除ボタンが押された時の処理
+        private void btDelete_Click(object sender, EventArgs e) {
 
-                private void Form1_Load(object sender, EventArgs e) {
-                    EnabledCheck(); //マスク処理呼び出し
-                                    //背景色
-                                    //dgvPersons.RowsDefaultCellStyle.BackColor = Color.Bisque;
-                                    //奇数行
-                    dgvPersons.AlternatingRowsDefaultCellStyle.BackColor = Color.AntiqueWhite;
-                }
+            listPerson.RemoveAt(dgvPersons.CurrentRow.Index);
+            EnabledCheck(); //マスク処理呼び出し
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            EnabledCheck(); //マスク処理呼び出し
+                            //背景色
+                            //dgvPersons.RowsDefaultCellStyle.BackColor = Color.Bisque;
+                            //奇数行
+            dgvPersons.AlternatingRowsDefaultCellStyle.BackColor = Color.AntiqueWhite;
+        }
 
 
-                //保存ボタンのイベントハンドラ
-                private void btSave_Click(object sender, EventArgs e) {
-                    if (sfdSaveDialog.ShowDialog() == DialogResult.OK) {
-                        try {
-                            //バイナリ形式でシリアル化
-                            var bf = new BinaryFormatter();
-                            using (FileStream fs = File.Open(sfdSaveDialog.FileName, FileMode.Create)) {
-                                bf.Serialize(fs, listPerson);
-                            }
-                        }
-                        catch (Exception ex) {
-                            MessageBox.Show(ex.Message);
-                        }
+        //保存ボタンのイベントハンドラ
+        private void btSave_Click(object sender, EventArgs e) {
+            if (sfdSaveDialog.ShowDialog() == DialogResult.OK) {
+                try {
+                    //バイナリ形式でシリアル化
+                    var bf = new BinaryFormatter();
+                    using (FileStream fs = File.Open(sfdSaveDialog.FileName, FileMode.Create)) {
+                        bf.Serialize(fs, listPerson);
                     }
                 }
-
-                private void btOpen_Click(object sender, EventArgs e) {
-                    if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK) {
-                        try {
-                            //バイナリ形式で逆シリアル化
-                            var bf = new BinaryFormatter();
-                            using (FileStream fs = File.Open(ofdFileOpenDialog.FileName, FileMode.Open, FileAccess.Read)) {
-                                //逆シリアル化して読み込む
-                                listPerson = (BindingList<Person>)bf.Deserialize(fs);
-                                dgvPersons.DataSource = null;
-                                dgvPersons.DataSource = listPerson;
-                            }
-                        }
-                        catch (Exception ex) {
-                            MessageBox.Show(ex.Message);
-                        }
-                        cbCompany.Items.Clear();    //コンボボックスのアイテム消去
-                                                    //コンボボックスへ新規登録
-                        foreach (var item in listPerson.Select(p => p.Company)) {
-                            setCbCompany(item);//存在する会社を登録
-                        }
-                    }
-                    EnabledCheck(); //マスク処理呼び出し
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
 
-        private void NewMethod(int index) {
-    groupCheckBoxAllClear();    //グループチェックボックスを一旦初期化
-
-    foreach (var group in listPerson[index].listGroup) {
-        switch (group) {
-            case Person.GroupType.トヨタ:
-                cbFamily.Checked = true;
-                break;
-            case Person.GroupType.日産:
-                cbFriend.Checked = true;
-                break;
-            case Person.GroupType.ホンダ:
-                cbWork.Checked = true;
-                break;
-            case Person.GroupType.スバル:
-                cbOther.Checked = true;
-                break;
-            case Person.GroupType.外国車:
-                cbOther.Checked = true;
-                break;
-            case Person.GroupType.その他:
-                cbOther.Checked = true;
-                break;
-            default:
-                break;
+        private void btOpen_Click(object sender, EventArgs e) {
+            if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK) {
+                try {
+                    //バイナリ形式で逆シリアル化
+                    var bf = new BinaryFormatter();
+                    using (FileStream fs = File.Open(ofdFileOpenDialog.FileName, FileMode.Open, FileAccess.Read)) {
+                        //逆シリアル化して読み込む
+                        listPerson = (BindingList<Person>)bf.Deserialize(fs);
+                        dgvPersons.DataSource = null;
+                        dgvPersons.DataSource = listPerson;
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+                cbCompany.Items.Clear();    //コンボボックスのアイテム消去
+                                            //コンボボックスへ新規登録
+                foreach (var item in listPerson.Select(p => p.Company)) {
+                    setCbCompany(item);//存在する会社を登録
+                }
+            }
+            EnabledCheck(); //マスク処理呼び出し
         }
-
-        NewMethod1(index);
     }
+}
+
+private void NewMethod(int index) {
+groupCheckBoxAllClear();    //グループチェックボックスを一旦初期化
+
+foreach (var group in listPerson[index].listGroup) {
+switch (group) {
+    case Person.GroupType.トヨタ:
+        cbFamily.Checked = true;
+        break;
+    case Person.GroupType.日産:
+        cbFriend.Checked = true;
+        break;
+    case Person.GroupType.ホンダ:
+        cbWork.Checked = true;
+        break;
+    case Person.GroupType.スバル:
+        cbOther.Checked = true;
+        break;
+    case Person.GroupType.外国車:
+        cbOther.Checked = true;
+        break;
+    case Person.GroupType.その他:
+        cbOther.Checked = true;
+        break;
+    default:
+        break;
+}
+
+NewMethod1(index);
+}
 }*/
 
-        
+
 
         private void データベース接続ToolStripMenuItem_Click(object sender, EventArgs e) {
             this.CarReportDBTableAdapter.Fill(this.infosys202223DataSet.CarReportDB);
         }
+
+        
     }
 }

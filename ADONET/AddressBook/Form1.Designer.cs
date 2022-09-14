@@ -331,7 +331,7 @@ namespace AddressBook {
             this.ヘルプToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(839, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(844, 24);
             this.menuStrip1.TabIndex = 21;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -377,7 +377,7 @@ namespace AddressBook {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 533);
+            this.ClientSize = new System.Drawing.Size(844, 538);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbSearchName);
             this.Controls.Add(this.btNameSearch);

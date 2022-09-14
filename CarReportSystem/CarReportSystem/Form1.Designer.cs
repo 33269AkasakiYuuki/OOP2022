@@ -428,14 +428,14 @@ namespace CarReportSystem {
             // データベース接続ToolStripMenuItem
             // 
             this.データベース接続ToolStripMenuItem.Name = "データベース接続ToolStripMenuItem";
-            this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.データベース接続ToolStripMenuItem.Text = "データベース接続";
             this.データベース接続ToolStripMenuItem.Click += new System.EventHandler(this.データベース接続ToolStripMenuItem_Click);
             // 
             // btExit
             // 
             this.btExit.Name = "btExit";
-            this.btExit.Size = new System.Drawing.Size(180, 22);
+            this.btExit.Size = new System.Drawing.Size(151, 22);
             this.btExit.Text = "終了";
             // 
             // contextMenuStrip1
