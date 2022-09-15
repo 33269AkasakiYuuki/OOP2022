@@ -1,21 +1,7 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
@@ -26,9 +12,7 @@ namespace CarReportSystem {
     public partial class Form1 : Form {
 
         //設定情報保存用オブジェクト
-        Settings settings = Settings.getInstance();
-        //カーレポート管理用リスト
-        BindingList<CarReport> listCarReport = new BindingList<CarReport>();
+        Settings settings = Settings.getInstancne();
 
         private void carReportBindingNavigatorSaveItem_Click(object sender, EventArgs e) {
             this.Validate();
@@ -89,16 +73,20 @@ namespace CarReportSystem {
             if (rbToyota.Checked) {
                 return "トヨタ";
             }
+
             if (rbNissan.Checked) {
                 return "日産";
             }
+
             if (rbHonda.Checked) {
                 return "ホンダ";
             }
+
             if (rbSubaru.Checked) {
                 return "スバル";
             }
-            if (rbImport.Checked) {
+
+            if (rbForeignCar.Checked) {
                 return "外国車";
             }
             
@@ -112,8 +100,8 @@ namespace CarReportSystem {
 
         //画像ファイルを開く
         private void btPictureOpen_Click(object sender, EventArgs e) {
-            if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK) {
-                pbPicture.Image = Image.FromFile(ofdFileOpenDialog.FileName);
+            if (ofdPictureOpen.ShowDialog() == DialogResult.OK) {
+                pbPicture.Image = Image.FromFile(ofdPictureOpen.FileName);
             }
         }
 
@@ -121,13 +109,17 @@ namespace CarReportSystem {
         private void btExit_Click(object sender, EventArgs e) {
             Application.Exit();
         }
+
         //削除
         private void btDelete_Click(object sender, EventArgs e) {
+
             //データセットのレコードを削除
-            infosys202223DataSet.CarReportDB.Rows.RemoveAt(CarReportDB.CurrentRow.Index);
+            infosys202223DataSet.CarReportDB.Rows.RemoveAt(DataGridView.CurrentRow.Index);
+            
             //データベース更新
             this.carReportDBTableAdapter.Update(this.infosys202223DataSet.CarReportDB);
         }
+
         //修正
         private void btFix_Click(object sender, EventArgs e) {
             if (String.IsNullOrWhiteSpace(tbReport.Text) && String.IsNullOrWhiteSpace(tbAuthor.Text) && String.IsNullOrWhiteSpace(tbCarName.Text)) {
@@ -149,18 +141,13 @@ namespace CarReportSystem {
             this.tableAdapterManager.UpdateAll(this.infosys202223DataSet);
         }
 
-
         //色設定
         private void btColorSetting_Click(object sender, EventArgs e) {
-            if (cdColor.ShowDialog() == DialogResult.OK) {
-                BackColor = cdColor.Color;
+            if (colorDialog1.ShowDialog() == DialogResult.OK) {
+                BackColor = colorDialog1.Color;
                 settings.MainFormColor = BackColor.ToArgb();  //設定オブジェクトにセット
             }
-
         }
-
-
-
 
         //フォームを閉じたときの処理
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
@@ -170,8 +157,6 @@ namespace CarReportSystem {
                 serializer.Serialize(color, settings);
             }
         }
-
-
 
         //フォームをロードしたときの処理
         private void Form1_Load(object sender, EventArgs e) {
@@ -185,9 +170,8 @@ namespace CarReportSystem {
                     BackColor = Color.FromArgb(settings.MainFormColor);
                 }
             }
-            catch (Exception) { }
-            finally {
-            }
+            catch(Exception){}
+            finally {}
         }
 
         //画像サイズ変更
@@ -196,15 +180,11 @@ namespace CarReportSystem {
             mode = mode < 4 ? ++mode : 0;
         }
 
-
-
         //データベース接続
         private void btConnect_Click(object sender, EventArgs e) {
             // TODO: このコード行はデータを 'infosys202228DataSet.CarReport' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
             this.carReportDBTableAdapter.Fill(this.infosys202223DataSet.CarReportDB);
         }
-
-
 
         // バイト配列をImageオブジェクトに変換
         public static Image ByteArrayToImage(byte[] b) {
@@ -218,16 +198,12 @@ namespace CarReportSystem {
             }
         }
 
-
-
         // Imageオブジェクトをバイト配列に変換
         public static byte[] ImageToByteArray(Image img) {
             ImageConverter imgconv = new ImageConverter();
             byte[] b = (byte[])imgconv.ConvertTo(img, typeof(byte[]));
             return b;
         }
-
-
 
         //エラー回避
         private void dgvCarReport_DataError(object sender, DataGridViewDataErrorEventArgs e) {
@@ -239,31 +215,45 @@ namespace CarReportSystem {
        //バージョン情報        private void btVersion_Click(object sender, EventArgs e) {new Version().ShowDialog();        }
 
        private void dgvCarReport_Click(object sender, EventArgs e) {
-            if (dgvCarReport.CurrentRow == null) return;
+            if (DataGridView.CurrentRow == null) return;
 
-            //データグリッドビューの選択レコードを各テキストボックスへ設定            try {                dtpDate.Value = (DateTime)dgvCarReport.CurrentRow.Cells[1].Value;            } catch { }            cbAuther.Text = dgvCarReport.CurrentRow.Cells[2].Value.ToString();            switch (dgvCarReport.CurrentRow.Cells[3].Value) {                case "トヨタ":                    rbToyota.Checked = true;                    break;                case "日産":                    rbNissan.Checked = true;                    break;                case "ホンダ":                    rbHonda.Checked = true;                    break;                case "スバル":                    rbSubaru.Checked = true;                    break;                case "外国車":                    rbForeignCar.Checked = true;                    break;                default:                    rbOther.Checked = true;                    break;            }            cbCarName.Text = dgvCarReport.CurrentRow.Cells[4].Value.ToString();            tbReport.Text = dgvCarReport.CurrentRow.Cells[5].Value.ToString();            if (!(dgvCarReport.CurrentRow.Cells[6].Value is DBNull)) {                pbPicture.Image = ByteArrayToImage((byte[])dgvCarReport.CurrentRow.Cells[6].Value);            } else {                pbPicture.Image = null;            }
-
-        }
-
-        private void btSarch_Click(object sender, EventArgs e) { this.carReportDBTableAdapter.Fill(this.infosys202223DataSet.CarReportDB); }
-    }
-
-
-
-
-private void carReportDBDataGridView_Clik(object sender,EventArgs e) {
-            setMakerRadioSet(carReportDBDataGridView.CurrentRow.Cells[3].Value.ToString());
-        }
-
-        private void setMakerRadioSet(string maker) {
-            switch (maker) {
+            //データグリッドビューの選択レコードを各テキストボックスへ設定
+            try {
+                tbDate.Value = (DateTime)DataGridView.CurrentRow.Cells[1].Value;
+            }
+            catch{
+                tbAuthor.Text = DataGridView.CurrentRow.Cells[2].Value.ToString();
+            }
+            switch (DataGridView.CurrentRow.Cells[3].Value){
                 case "トヨタ":
                     rbToyota.Checked = true;
                     break;
-
                 case "日産":
                     rbNissan.Checked = true;
                     break;
+                case "ホンダ":    
+                    rbHonda.Checked = true; 
+                    break;   
+                case "スバル": 
+                    rbSubaru.Checked = true; 
+                    break;    
+                case "外国車":   
+                    rbForeignCar.Checked = true;    
+                    break;   
+                default:
+                    rbOther.Checked = true;
+                    break;          
+            }
+
+            tbCarName.Text = DataGridView.CurrentRow.Cells[4].Value.ToString();
+            tbReport.Text = DataGridView.CurrentRow.Cells[5].Value.ToString();
+            if (!(DataGridView.CurrentRow.Cells[6].Value is DBNull)) {
+                pbPicture.Image = ByteArrayToImage((byte[])DataGridView.CurrentRow.Cells[6].Value);
+            }
+            else {
+                pbPicture.Image = null;
             }
         }
+
+    }
 }
