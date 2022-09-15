@@ -40,7 +40,7 @@ namespace CarReportSystem {
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.pbPicture = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +70,7 @@ namespace CarReportSystem {
             this.btExit = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carReportDBBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infosys202223DataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -125,7 +125,6 @@ namespace CarReportSystem {
             this.btAddPerson.TabIndex = 2;
             this.btAddPerson.Text = "追加";
             this.btAddPerson.UseVisualStyleBackColor = true;
-            this.btAddPerson.Click += new System.EventHandler(this.btAddPerson_Click);
             // 
             // button4
             // 
@@ -218,12 +217,12 @@ namespace CarReportSystem {
             this.pbPicture.TabIndex = 6;
             this.pbPicture.TabStop = false;
             // 
-            // dataGridView1
+            // DataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridView.AllowUserToAddRows = false;
+            this.DataGridView.AutoGenerateColumns = false;
+            this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn,
             this.authorDataGridViewTextBoxColumn,
@@ -231,15 +230,15 @@ namespace CarReportSystem {
             this.carNameDataGridViewTextBoxColumn,
             this.reportDataGridViewTextBoxColumn,
             this.imageDataGridViewImageColumn});
-            this.dataGridView1.DataSource = this.carReportDBBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(62, 331);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(746, 194);
-            this.dataGridView1.TabIndex = 1;
+            this.DataGridView.DataSource = this.carReportDBBindingSource;
+            this.DataGridView.Location = new System.Drawing.Point(62, 331);
+            this.DataGridView.MultiSelect = false;
+            this.DataGridView.Name = "DataGridView";
+            this.DataGridView.ReadOnly = true;
+            this.DataGridView.RowTemplate.Height = 21;
+            this.DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridView.Size = new System.Drawing.Size(746, 194);
+            this.DataGridView.TabIndex = 1;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -430,7 +429,6 @@ namespace CarReportSystem {
             this.データベース接続ToolStripMenuItem.Name = "データベース接続ToolStripMenuItem";
             this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.データベース接続ToolStripMenuItem.Text = "データベース接続";
-            this.データベース接続ToolStripMenuItem.Click += new System.EventHandler(this.データベース接続ToolStripMenuItem_Click);
             // 
             // btExit
             // 
@@ -472,14 +470,14 @@ namespace CarReportSystem {
             this.Controls.Add(this.tbCarName);
             this.Controls.Add(this.tbAuthor);
             this.Controls.Add(this.tbDate);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DataGridView);
             this.Controls.Add(this.tbReport);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carReportDBBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infosys202223DataSet)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -506,7 +504,7 @@ namespace CarReportSystem {
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.PictureBox pbPicture;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DataGridView;
         private System.Windows.Forms.TextBox tbReport;
         private System.Windows.Forms.Button btPictureOpen;
         private System.Windows.Forms.Label label1;
