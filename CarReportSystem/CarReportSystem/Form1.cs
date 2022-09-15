@@ -74,7 +74,7 @@ namespace CarReportSystem {
                 return "トヨタ";
             }
 
-            if (rbNissan.Checked) {
+            if (rbNissan.Checked) { 
                 return "日産";
             }
 
