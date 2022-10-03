@@ -406,7 +406,7 @@ namespace CarReportSystem {
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(816, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(808, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -423,19 +423,19 @@ namespace CarReportSystem {
             // データベース接続ToolStripMenuItem
             // 
             this.データベース接続ToolStripMenuItem.Name = "データベース接続ToolStripMenuItem";
-            this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.データベース接続ToolStripMenuItem.Text = "データベース接続";
             // 
             // btExit
             // 
             this.btExit.Name = "btExit";
-            this.btExit.Size = new System.Drawing.Size(180, 22);
+            this.btExit.Size = new System.Drawing.Size(151, 22);
             this.btExit.Text = "終了";
             // 
             // cdColor
             // 
             this.cdColor.Name = "cdColor";
-            this.cdColor.Size = new System.Drawing.Size(180, 22);
+            this.cdColor.Size = new System.Drawing.Size(151, 22);
             this.cdColor.Text = "色設定";
             this.cdColor.Click += new System.EventHandler(this.btColorSetting_Click);
             // 
@@ -452,7 +452,7 @@ namespace CarReportSystem {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 527);
+            this.ClientSize = new System.Drawing.Size(808, 526);
             this.Controls.Add(this.rbOther);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
