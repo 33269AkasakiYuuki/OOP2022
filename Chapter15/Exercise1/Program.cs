@@ -35,19 +35,34 @@ namespace Exercise1 {
         }
 
         private static void Exercise1_3() {
+            var query = Library.Books.GroupBy(b => b.PublishedYear);
 
+            foreach(var item in query.OrderBy(b => b.Key)) {
+                Console.WriteLine("{0}年　{1}冊", item.Key, item.Count());
+            }
         }
 
         private static void Exercise1_4() {
             var selected = Library.Books
+                .Join(Library.Categories,           
+                        book => book.CategoryId,    
+                        category => category.Id,   
+                        (book, category) => new {
+                            book.Title,
+                            book.PublishedYear,
+                            book.Price,
+                            CategoryName = category.Name
+                        })
                 .OrderByDescending(b => b.PublishedYear)
                 .ThenByDescending(b => b.Price);
             foreach(var book in selected) {
-                Console.WriteLine($"{book.PublishedYear} {book.Price} {book.Title} ");
+                Console.WriteLine($"{book.PublishedYear} {book.Price} {book.Title} ({book.CategoryName}) ");
+                
             }
         }
 
         private static void Exercise1_5() {
+
         }
 
         private static void Exercise1_6() {
