@@ -127,6 +127,7 @@ namespace CarReportSystem {
             this.btAddPerson.TabIndex = 2;
             this.btAddPerson.Text = "追加";
             this.btAddPerson.UseVisualStyleBackColor = true;
+            this.btAddPerson.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // button4
             // 
@@ -145,6 +146,7 @@ namespace CarReportSystem {
             this.button5.TabIndex = 2;
             this.button5.Text = "修正";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.btFix_Click);
             // 
             // button6
             // 
@@ -154,6 +156,7 @@ namespace CarReportSystem {
             this.button6.TabIndex = 2;
             this.button6.Text = "削除";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // rbToyota
             // 
@@ -423,19 +426,20 @@ namespace CarReportSystem {
             // データベース接続ToolStripMenuItem
             // 
             this.データベース接続ToolStripMenuItem.Name = "データベース接続ToolStripMenuItem";
-            this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.データベース接続ToolStripMenuItem.Text = "データベース接続";
+            this.データベース接続ToolStripMenuItem.Click += new System.EventHandler(this.btConnect_Click);
             // 
             // btExit
             // 
             this.btExit.Name = "btExit";
-            this.btExit.Size = new System.Drawing.Size(151, 22);
+            this.btExit.Size = new System.Drawing.Size(180, 22);
             this.btExit.Text = "終了";
             // 
             // cdColor
             // 
             this.cdColor.Name = "cdColor";
-            this.cdColor.Size = new System.Drawing.Size(151, 22);
+            this.cdColor.Size = new System.Drawing.Size(180, 22);
             this.cdColor.Text = "色設定";
             this.cdColor.Click += new System.EventHandler(this.btColorSetting_Click);
             // 

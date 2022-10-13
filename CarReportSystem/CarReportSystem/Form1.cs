@@ -182,7 +182,7 @@ namespace CarReportSystem {
 
         //データベース接続
         private void btConnect_Click(object sender, EventArgs e) {
-            // TODO: このコード行はデータを 'infosys202228DataSet.CarReport' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
+            // TODO: このコード行はデータを 'infosys202223DataSet.CarReport' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
             this.carReportDBTableAdapter.Fill(this.infosys202223DataSet.CarReportDB);
         }
 
@@ -254,6 +254,5 @@ namespace CarReportSystem {
                 pbPicture.Image = null;
             }
         }
-
     }
 }
