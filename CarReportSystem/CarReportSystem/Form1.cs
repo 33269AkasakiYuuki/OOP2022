@@ -254,5 +254,9 @@ namespace CarReportSystem {
                 pbPicture.Image = null;
             }
         }
+
+        private void DataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e) {
+
+        }
     }
 }
