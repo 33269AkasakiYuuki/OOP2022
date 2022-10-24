@@ -20,6 +20,13 @@ namespace SampleApplication {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+            seasonComboBox.SelectedIndex = getSeasonIndex;
+        }
+
+        private int getSeasonIndex() {
+            var today = DateTime.Now;
+            int ret =((int)today.Month)/3-1
+            return ret;
         }
 
         private void checkBox_Checked(object sender, RoutedEventArgs e) {
@@ -31,7 +38,7 @@ namespace SampleApplication {
         }
 
         private void redRadioButton_Checked(object sender, RoutedEventArgs e) {
-            colorTextBok.Text= "赤";
+            colorTextBok.Text = "赤";
         }
 
         private void yellRadioButton_Checked(object sender, RoutedEventArgs e) {
