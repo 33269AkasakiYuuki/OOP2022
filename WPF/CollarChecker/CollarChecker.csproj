@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E488B5B-17BC-414B-AE6E-92674480B792}</ProjectGuid>
+    <ProjectGuid>{0A07928A-3629-4C6B-A509-37C709114F59}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CollarChecker</RootNamespace>
     <AssemblyName>CollarChecker</AssemblyName>
