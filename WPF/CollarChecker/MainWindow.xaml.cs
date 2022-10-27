@@ -41,14 +41,33 @@ namespace CollarChecker {
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            setColor();
+            setColor(); //起動時に初期状態の設定値(R:0 G:0 B:0)から色を設定
         }
 
+        //テキストボックスの値を元の色に設定
         private void setColor() {
             var r = byte.Parse(rValue.Text);
             var g = byte.Parse(gValue.Text);
             var b = byte.Parse(bValue.Text);
             colorArea.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
+            //var color = mycolor.Color;
+            //var name = mycolor.Color;
+
+            rSlider.Value = mycolor.Color.R;
+            gSlider.Value = mycolor.Color.G;
+            bSlider.Value = mycolor.Color.B;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
         }
     }
 
@@ -58,5 +77,7 @@ namespace CollarChecker {
     public class MyColor {
         public Color Color { get; set; }
         public string Name { get; set; }
+
+
     }
 }
