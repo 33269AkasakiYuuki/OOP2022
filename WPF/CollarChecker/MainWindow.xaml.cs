@@ -10,6 +10,7 @@ namespace CollarChecker {
     /// </summary>
     public partial class MainWindow : Window {
 
+        //List<MyColor> colorList = new List<MyColor>();
         MyColor myColor = new MyColor();
         public MainWindow() {
             InitializeComponent();
@@ -53,15 +54,33 @@ namespace CollarChecker {
         }
 
         private void stockButton_Click(object sender, RoutedEventArgs e) {
+            stockList.Items.Add(" R: "+ rValue.Text +" G: "+ gValue.Text +" B: "+ bValue.Text);
 
+            /*MyColor stColor = new MyColor();
+            var r = byte.Parse(rValue.Text);
+            var g = byte.Parse(gValue.Text);
+            var b = byte.Parse(bValue.Text);
+
+            stColor.Color = Color.FromRgb(r, g, b);
+
+            colorList.Add(stColor);*/
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e) {
             //選択項目がない場合は処理せず戻し
-            if (stockList.SelectedItems.Count == 0) return;
-
-            colorArea.RemoveAt(stockList.SelectedIndex);
+            if (stockList.SelectedItems.Count == 0) {
+                .Items.RemoveAt(0);
+            }
+            return;
+            //stockList.Items.RemoveAt(stockList.SelectedIndex);
         }
+
+        /*private void stockList_SelectionChanged(object sender, SelectedCellsChangedEventArgs e) {
+            rSlider.Value = colorList[stockList.SelectedIndex].Color.R;
+            gSlider.Value = colorList[stockList.SelectedIndex].Color.G;
+            bSlider.Value = colorList[stockList.SelectedIndex].Color.B;
+            setColor();
+        }*/
     }
 
     /// <summary>
