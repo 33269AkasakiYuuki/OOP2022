@@ -69,7 +69,7 @@ namespace CollarChecker {
         private void deleteButton_Click(object sender, RoutedEventArgs e) {
             //選択項目がない場合は処理せず戻し
             if (stockList.SelectedItems.Count == 0) {
-                .Items.RemoveAt(0);
+                stockList.Items.RemoveAt(0);
             }
             return;
             //stockList.Items.RemoveAt(stockList.SelectedIndex);
