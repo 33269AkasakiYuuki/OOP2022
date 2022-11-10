@@ -46,7 +46,7 @@ namespace CollarChecker {
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
+           var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
 
             rSlider.Value = mycolor.Color.R;
             gSlider.Value = mycolor.Color.G;
@@ -73,12 +73,16 @@ namespace CollarChecker {
             colorList.Insert(0, stColor);
         }
 
-        private void deleteButton_Click(object sender, RoutedEventArgs e) {
+        private void DeleteButton_Click(object sender, RoutedEventArgs e) {
             //選択項目がない場合は処理せず戻し
-            if (stockList.SelectedItems.Count == 0) {
-                stockList.Items.RemoveAt(0);
+            if (stockList.SelectedItems.Count == -1) {
             }
+            stockList.Items.RemoveAt(0);
             return;
+
+            /*if (stockList.SelectedIndex == -1) return;
+            colorList.RemoveAt(stockList.SelectedIndex);
+            stockList.Items.RemoveAt(stockList.SelectedIndex);*/
             //stockList.Items.RemoveAt(stockList.SelectedIndex);
         }
 
