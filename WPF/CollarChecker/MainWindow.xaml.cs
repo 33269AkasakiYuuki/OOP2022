@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,7 +12,7 @@ namespace CollarChecker {
     /// </summary>
     public partial class MainWindow : Window {
 
-        //List<MyColor> colorList = new List<MyColor>();
+        List<MyColor> colorList = new List<MyColor>();
         MyColor myColor = new MyColor();
         public MainWindow() {
             InitializeComponent();
@@ -45,25 +47,30 @@ namespace CollarChecker {
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
-            //var color = mycolor.Color;
-            //var name = mycolor.Name;
 
             rSlider.Value = mycolor.Color.R;
             gSlider.Value = mycolor.Color.G;
             bSlider.Value = mycolor.Color.B;
+            setColor();
         }
 
         private void stockButton_Click(object sender, RoutedEventArgs e) {
-            stockList.Items.Add(" R: "+ rValue.Text +" G: "+ gValue.Text +" B: "+ bValue.Text);
+            //stockList.Items.Add(" R: "+ rValue.Text +" G: "+ gValue.Text +" B: "+ bValue.Text);
 
-            /*MyColor stColor = new MyColor();
+            MyColor stColor = new MyColor();
             var r = byte.Parse(rValue.Text);
             var g = byte.Parse(gValue.Text);
             var b = byte.Parse(bValue.Text);
 
             stColor.Color = Color.FromRgb(r, g, b);
 
-            colorList.Add(stColor);*/
+            var colorName = ((IEnumerable<MyColor>)DataContext)
+                .Where(c => c.Color.R == stColor.Color.R &&
+                             c.Color.G == stColor.Color.G &&
+                             c.Color.B == stColor.Color.B).FirstOrDefault();
+
+            stockList.Items.Insert(0, colorName?.Name ?? " R: " + r + " G: " + g + " B: " + b);
+            colorList.Insert(0, stColor);
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e) {
@@ -75,12 +82,12 @@ namespace CollarChecker {
             //stockList.Items.RemoveAt(stockList.SelectedIndex);
         }
 
-        /*private void stockList_SelectionChanged(object sender, SelectedCellsChangedEventArgs e) {
+        private void stockList_SelectionChanged(object sender, SelectedCellsChangedEventArgs e) {
             rSlider.Value = colorList[stockList.SelectedIndex].Color.R;
             gSlider.Value = colorList[stockList.SelectedIndex].Color.G;
             bSlider.Value = colorList[stockList.SelectedIndex].Color.B;
             setColor();
-        }*/
+        }
     }
 
     /// <summary>
