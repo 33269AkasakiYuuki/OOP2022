@@ -31,7 +31,6 @@ namespace WeatherApp {
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbWeatherInfo2 = new System.Windows.Forms.TextBox();
-            this.tbWeatherInfo3 = new System.Windows.Forms.TextBox();
             this.tbWeatherInfo4 = new System.Windows.Forms.TextBox();
             this.tbWeatherInfo5 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -44,10 +43,16 @@ namespace WeatherApp {
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbWeatherInfo3 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbWeatherInfo1
             // 
+            this.tbWeatherInfo1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbWeatherInfo1.Location = new System.Drawing.Point(594, 22);
             this.tbWeatherInfo1.Multiline = true;
             this.tbWeatherInfo1.Name = "tbWeatherInfo1";
@@ -101,22 +106,18 @@ namespace WeatherApp {
             // 
             // tbWeatherInfo2
             // 
+            this.tbWeatherInfo2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbWeatherInfo2.Location = new System.Drawing.Point(594, 56);
             this.tbWeatherInfo2.Multiline = true;
             this.tbWeatherInfo2.Name = "tbWeatherInfo2";
             this.tbWeatherInfo2.Size = new System.Drawing.Size(128, 22);
             this.tbWeatherInfo2.TabIndex = 0;
             // 
-            // tbWeatherInfo3
-            // 
-            this.tbWeatherInfo3.Location = new System.Drawing.Point(594, 94);
-            this.tbWeatherInfo3.Multiline = true;
-            this.tbWeatherInfo3.Name = "tbWeatherInfo3";
-            this.tbWeatherInfo3.Size = new System.Drawing.Size(82, 19);
-            this.tbWeatherInfo3.TabIndex = 0;
-            // 
             // tbWeatherInfo4
             // 
+            this.tbWeatherInfo4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbWeatherInfo4.Location = new System.Drawing.Point(594, 130);
             this.tbWeatherInfo4.Multiline = true;
             this.tbWeatherInfo4.Name = "tbWeatherInfo4";
@@ -126,13 +127,14 @@ namespace WeatherApp {
             // tbWeatherInfo5
             // 
             this.tbWeatherInfo5.AcceptsReturn = true;
-            this.tbWeatherInfo5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbWeatherInfo5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbWeatherInfo5.Location = new System.Drawing.Point(460, 180);
             this.tbWeatherInfo5.MinimumSize = new System.Drawing.Size(30, 30);
             this.tbWeatherInfo5.Multiline = true;
             this.tbWeatherInfo5.Name = "tbWeatherInfo5";
-            this.tbWeatherInfo5.Size = new System.Drawing.Size(265, 253);
+            this.tbWeatherInfo5.Size = new System.Drawing.Size(265, 294);
             this.tbWeatherInfo5.TabIndex = 0;
             this.tbWeatherInfo5.TabStop = false;
             // 
@@ -142,7 +144,7 @@ namespace WeatherApp {
             | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Location = new System.Drawing.Point(364, 387);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 46);
+            this.button1.Size = new System.Drawing.Size(90, 87);
             this.button1.TabIndex = 2;
             this.button1.Text = "取得";
             this.button1.UseVisualStyleBackColor = true;
@@ -225,11 +227,38 @@ namespace WeatherApp {
             this.textBox4.Size = new System.Drawing.Size(128, 43);
             this.textBox4.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(55, 242);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(218, 111);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tbWeatherInfo3
+            // 
+            this.tbWeatherInfo3.FormattingEnabled = true;
+            this.tbWeatherInfo3.Location = new System.Drawing.Point(594, 98);
+            this.tbWeatherInfo3.Name = "tbWeatherInfo3";
+            this.tbWeatherInfo3.Size = new System.Drawing.Size(121, 20);
+            this.tbWeatherInfo3.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(364, 80);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 20);
+            this.comboBox1.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 451);
+            this.ClientSize = new System.Drawing.Size(748, 492);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.tbWeatherInfo3);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label11);
@@ -247,11 +276,12 @@ namespace WeatherApp {
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tbWeatherInfo4);
-            this.Controls.Add(this.tbWeatherInfo3);
             this.Controls.Add(this.tbWeatherInfo2);
             this.Controls.Add(this.tbWeatherInfo1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,7 +296,6 @@ namespace WeatherApp {
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbWeatherInfo2;
-        private System.Windows.Forms.TextBox tbWeatherInfo3;
         private System.Windows.Forms.TextBox tbWeatherInfo4;
         private System.Windows.Forms.TextBox tbWeatherInfo5;
         private System.Windows.Forms.Button button1;
@@ -279,6 +308,9 @@ namespace WeatherApp {
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox tbWeatherInfo3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
